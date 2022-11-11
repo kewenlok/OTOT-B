@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import './App.css';
 import AddTaskSection from './components/AddTaskSection';
+import CurrencyInfo from './components/CurrencyInfo';
 import TaskList from './components/TaskList';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       </AppBar>
       <AddTaskSection handleListChange={() => {setIsListRefreshed(!isListRefreshed)}} />
       <TaskList isListRefreshed={isListRefreshed} handleListChange={() => {setIsListRefreshed(!isListRefreshed)}} />
+      <CurrencyInfo />
     </> 
   );
 }
