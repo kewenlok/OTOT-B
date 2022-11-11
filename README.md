@@ -2,6 +2,10 @@
 
 # API
 
+The backend API server is deployed on Google Cloud Run and is accessible at https://otot-b-65vjwih74a-as.a.run.app
+
+The database server used for this task is deployed on MongoDB ATLAS
+
 - `GET /task/all` - Retrieve a list of added tasks
 - `POST /task/add` - Create a new task
   - Expected data:
@@ -13,7 +17,7 @@
     }
     ```
 - `PUT /task/update` - Update task completion status with specified task ID
-  - Expected data (json):
+  - Expected data:
     ```json
     {
       "_id": "mongo_db_document_id",
@@ -22,7 +26,7 @@
     }
     ```
 - `DELETE /task/delete` - Delete the user with the specified task ID
-  - Expceted data (json):
+  - Expceted data:
     ```json
     {
       "_id": "mongo_db_document_id",

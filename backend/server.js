@@ -13,6 +13,10 @@ app.use('/api', apiRoutes);
 
 const PORT = process.env.PORT || 8081;
 
-app.listen(PORT, function () {
-  console.log(`Running TaskLog on port ${PORT}`);
-});
+if (process.env.ENV === 'test') {
+  module.exports = app;
+} else {
+  app.listen(PORT, function () {
+    console.log(`Running TaskLog on port ${PORT}`);
+  });
+}

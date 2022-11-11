@@ -27,7 +27,7 @@ const addTask = async function(req, res) {
     });
 
     // Return success response with latest task information
-    return res.status(201).json(task);
+    return res.status(200).json(task);
   } catch (error) {
     console.log(`Error occured when adding task. ${error}`);
     res.status(500).send("Oops...we are unable to add a new task at the moment. Please try again later.");
@@ -46,7 +46,7 @@ const deleteTask = async function(req, res) {
     // Delete task
     const task = await Task.findOneAndDelete({ _id: task_id });
     if (task) {
-        return res.status(200).send(task);
+      return res.status(201).send(task);
     }
   
     return res.status(409).send("Task doesn't exist!");
@@ -62,16 +62,17 @@ const updateTask = async function(req, res) {
 
     // Ensure that task ID and is completed is not empty
     if (!task_id || !is_completed) {
-        return res.status(400).send("Task ID and/or completion status should not be empty!");
+      return res.status(400).send("Task ID and/or completion status should not be empty!");
     }
     
     // Update the status of specified task
     const task = await Task.findByIdAndUpdate(
-        { _id: task_id }, 
-        { is_completed }
+      { _id: task_id }, 
+      { is_completed }
     );
     if (task) {
-        return res.status(200).send(task);
+      const updatedTask = await Task.findById(task_id);
+      return res.status(201).send(updatedTask);
     }
     
     return res.status(409).send("Task ID doesn't exist.");
