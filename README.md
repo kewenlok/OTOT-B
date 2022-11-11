@@ -2,9 +2,11 @@
 
 # API
 
-The backend API server is deployed on Google Cloud Run and is accessible at https://otot-b-65vjwih74a-as.a.run.app
+The backend API server is deployed on Google Cloud Run and is accessible at https://otot-b-cd-65vjwih74a-as.a.run.app.
 
-The database server used for this task is deployed on MongoDB ATLAS
+A continuous deployment is achieved by using triggers on the Google Cloud Build platform and is triggered upon every push to the main branch.
+
+The database server used for this task is deployed on MongoDB ATLAS with whitelist connection of `0.0.0.0/0` to allow all connections for simplicity.
 
 - `GET /task/all` - Retrieve a list of added tasks
 - `POST /task/add` - Create a new task
