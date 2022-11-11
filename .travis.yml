@@ -3,6 +3,6 @@ services:
   - docker
 install: skip
 before_script:
-  - bash backend/scripts/build-test.sh
+  - bash scripts/build-test.sh
 script:
-  - bash backend/scripts/test.sh
+  - bash scripts/test.sh
