@@ -1,0 +1,1 @@
+export const BACKEND_URL = "https://otot-b-cd-65vjwih74a-as.a.run.app";
