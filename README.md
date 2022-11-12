@@ -8,8 +8,8 @@ A continuous deployment is achieved by using triggers on the Google Cloud Build 
 
 The database server used for this task is deployed on MongoDB ATLAS with whitelist connection of `0.0.0.0/0` to allow all connections for simplicity.
 
-- `GET /task/all` - Retrieve a list of added tasks
-- `POST /task/add` - Create a new task
+- `GET /api/task/all` - Retrieve a list of added tasks
+- `POST /api/task/add` - Create a new task
   - Expected data:
     ```json
     {
@@ -18,7 +18,7 @@ The database server used for this task is deployed on MongoDB ATLAS with whiteli
       "is_completed": "is_completed"
     }
     ```
-- `PUT /task/update` - Update task completion status with specified task ID
+- `PUT /api/task/update` - Update task completion status with specified task ID
   - Expected data:
     ```json
     {
@@ -27,7 +27,7 @@ The database server used for this task is deployed on MongoDB ATLAS with whiteli
       "is_completed": "is_completed"
     }
     ```
-- `DELETE /task/delete` - Delete the user with the specified task ID
+- `DELETE /api/task/delete` - Delete the user with the specified task ID
   - Expceted data:
     ```json
     {
